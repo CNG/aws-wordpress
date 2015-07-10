@@ -1,0 +1,27 @@
+127.0.0.1 localhost
+
+# The following lines are desirable for IPv6 capable hosts
+::1 ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+ff02::3 ip6-allhosts
+
+0.0.0.0  dev          dev.domain.com
+0.0.0.0  dev-int      # for reference
+
+0.0.0.0  stage        stage.domain.com
+0.0.0.0  stage-int    # for reference
+
+0.0.0.0  prod-a-1     app-a-1.domain.com
+0.0.0.0  prod-a-1-int # needed for GlusterFS
+
+0.0.0.0  prod-c-1     app-c-1.domain.com
+0.0.0.0  prod-c-1-int # needed for GlusterFS
+
+0.0.0.0  prod-e-1     app-e-1.domain.com
+0.0.0.0  prod-e-1-int # needed for GlusterFS
+
+0.0.0.0  prod-d-1     app-d-1.domain.com
+0.0.0.0  prod-d-1-int # needed for GlusterFS

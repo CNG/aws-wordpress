@@ -1,0 +1,8 @@
+#!/bin/bash
+
+SCRIPT=/opt/backup.sh
+RUN_TYPE=scheduled
+
+if [[ -f $SCRIPT ]]; then
+  source "$SCRIPT"
+fi

@@ -1,0 +1,30 @@
+version: 0.0
+os: linux 
+files:
+  - source: /
+    destination: /tmp/deploy-files
+hooks:
+  #ApplicationStop:
+    # NOTE: Since ApplicationStop runs before downloading files,
+    # it uses files from LAST SUCCESSFUL deployment.
+    # See http://docs.aws.amazon.com/codedeploy/latest/userguide/app-spec-ref.html
+  #DownloadBundle:
+    # Files copied to a temporary location
+    # Cannot run scripts here
+  BeforeInstall:
+    # NOTE: Since BeforeInstall runs before finalizing files,
+    # it cannot access outside files from this deployment.
+    - location: scripts/master.sh
+      timeout: 600
+  #Install:
+    # Files copied to /tmp/deploy-files
+    # Cannot run scripts here
+  AfterInstall:
+    - location: scripts/master.sh
+      timeout: 600
+  ApplicationStart:
+    - location: scripts/master.sh
+      timeout: 600
+  ValidateService:
+    - location: scripts/master.sh
+      timeout: 600

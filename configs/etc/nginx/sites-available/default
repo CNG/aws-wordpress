@@ -1,0 +1,38 @@
+server {
+	listen 8080 default_server;
+	listen [::]:8080 default_server ipv6only=on;
+
+	port_in_redirect off;
+
+	root /var/www/html;
+	index index.php index.html index.htm;
+
+	server_name DOMAIN_NAME;
+
+	include /etc/nginx/conf.d/w3-total-cache.subconf;
+
+	location / {
+		# WordPress routing
+		try_files $uri $uri/ /index.php?q=$uri&$args;
+	}
+
+	error_page 404 /404.html;
+	error_page 500 502 503 504 /50x.html;
+	location = /50x.html { root /usr/share/nginx/html; }
+
+	location ~ \.php$ {
+	 	fastcgi_split_path_info ^(.+\.php)(/.+)$;
+	 	fastcgi_pass unix:/var/run/php5-fpm.sock;
+	 	fastcgi_index index.php;
+	 	# set to 10 hours temporarily for migration
+    fastcgi_read_timeout 36000s;
+		fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+	 	include fastcgi_params;
+		try_files $uri =404;
+	}
+
+	location ~ /\.ht {
+	 	deny all;
+	}
+
+}

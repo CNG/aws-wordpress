@@ -1,0 +1,85 @@
+# -----------------------------------------------------------------
+# .gitignore for Amazon Web Services + WordPress
+#
+# This file specifies intentionally untracked files to ignore
+# http://git-scm.com/docs/gitignore
+#
+# To ignore uncommitted changes in a file that is already tracked,
+# use `git update-index --assume-unchanged`
+#
+# To stop tracking a file that is currently tracked,
+# use `git rm --cached`
+# -----------------------------------------------------------------
+
+# Ignore OS generated files
+ehthumbs.db
+Thumbs.db
+desktop.ini
+*~
+*.lock
+*.DS_Store
+*.bak
+*.swp
+*.out
+._*
+*.swp
+*.swo
+*.swn
+
+# Ignore Editor files
+*.sublime-project
+*.sublime-workspace
+*.komodoproject
+*.taskpaper
+*.idea
+
+# Ignore log files and databases
+*.log
+*.sql
+*.sqlite
+
+# Ignore compiled files
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Ignore packaged files
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Ignore node/gulp dependency directories
+node_modules
+html/wp-content/themes/*/bower_components
+npm-debug.log
+.sass-cache
+
+# Ignore local WP cache
+html/wp-content/advanced-cache.php
+html/wp-content/wp-cache-config.php
+html/wp-content/cache/
+
+# Ignore WP media and backup dirs
+html/wp-content/backup-db/
+html/wp-content/backups/
+html/wp-content/blogs.dir/
+html/wp-content/upgrade/
+html/wp-content/uploads/
+
+# Ignore useless WP plugin files & themes
+html/wp-content/plugins/hello.php
+html/wp-content/plugins/index.php
+html/wp-content/themes/twenty*
+
+# Ignore local WP config
+html/.htaccess
+html/wp-config.local.php
+html/info.php
